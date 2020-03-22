@@ -14,16 +14,69 @@ window.onload = function () {
 	});
     
 
-   
-
-    var intervalID = window.setInterval(myCallback, 1000);
+    try {
+        var listenerId1 = tizen.humanactivitymonitor.addActivityRecognitionListener('STATIONARY', listenerChill, errorCallback);
+        var listenerId2= tizen.humanactivitymonitor.addActivityRecognitionListener('WALKING', listenerRest, errorCallback);
+        var listenerId3 = tizen.humanactivitymonitor.addActivityRecognitionListener('RUNNING', listenerRest, errorCallback);
+        var listenerId4 = tizen.humanactivitymonitor.addActivityRecognitionListener('IN_VEHICLE', listenerRest, errorCallback);
+        
+    } catch (error) {
+    //	document.getElementById('textbox').innerHTML = error.name + ': ' + error.message;
+        console.log(error.name + ': ' + error.message);
+    }
+    
+    var intervalID = window.setInterval(sekCaller, 1000);
 
    
     
 };
-function myCallback() {
 
-		
+
+//Funktionen des Activity Monitors:::::::::::::::::::::::::
+function errorCallback(error) {
+	//document.getElementById('textbox').innerHTML = error.name + ': ' + error.message;
+    console.log(error.name + ': ' + error.message);
+}
+function listenerChill(info) {
+	 //  document.getElementById('textbox').innerHTML = "Type:"+info.type+"Zeit:";
+	   //+localStorage.getItem('chillTimeHour');
+       console.log('type: ' + info.type);
+       console.log('timestamp: ' + info.timestamp);
+       console.log('accuracy: ' + info.accuracy);
+    //   handeWaschenAlert();
+     //  var date = tizen.time.getCurrentDateTime();
+	  // localStorage.setItem('chillTimeHour', date.getHours());
+	   //localStorage.setItem('chillTimeMin', date.getMinutes());
+	   
+	
+}
+function listenerRest(info) {
+	  
+	//  document.getElementById('textbox').innerHTML = "Type:"+info.type;
+      console.log('type: ' + info.type);
+      console.log('timestamp: ' + info.timestamp);
+      console.log('accuracy: ' + info.accuracy);
+      var date = tizen.time.getCurrentDateTime();
+	  localStorage.setItem('unterwegsTimeHour', date.getHours());
+	  localStorage.setItem('unterwegsTimeMin', date.getMinutes());
+	   
+	
+}
+
+
+//:::::::::::::::::::::::ENDE Funktionen des Activity Monitors:::::::::::::::::::::::::
+
+//Funktion die jede Sekunde ausgeführt wird:
+function sekCaller() {
+
+	//Bewegungserkennung********************************
+	if(localStorage.getItem('bewegungsAk')=="aktiv"){
+	     //Ob die Bewegungen erkennt werden sollen
+		 console.log('Step status: ' + pedometerInfo.stepStatus);
+	}
+	
+	//********************************ENDE Bewegungserkennung********************************
+	//Timer Aktivitäten:______________________________	
 	if(localStorage.getItem('timerAk')=="deaktiv"){
 		
 	}
@@ -44,7 +97,9 @@ function myCallback() {
 		zahlMin = zahlMin -1;
 		if(zahlMin==-1){
 			//Sekunden und Min auf 0
-			navigator.vibrate(80);
+		//	navigator.vibrate(100);
+			
+			
 		
 			var timerMin = localStorage.getItem('timerMin');
 			console.log("Der Wert: " +timerMin);
@@ -59,8 +114,8 @@ function myCallback() {
 				zeitMin.innerHTML = timerMin-1;
 				zeitSek.innerHTML = 59;
 			}
+			 handeWaschenAlert();
 			
-			alert("Vergessen sie es nicht ihre Hände zu Waschen!");
 		}
 		else{
 			if(zahlMin<=9){
@@ -78,9 +133,33 @@ function myCallback() {
     	zeitSek.innerHTML = textSek; 
 	}
 	}
-
+	//______________________________ENDE Timer Aktivitäten______________________________	
 }
 
+//Funktion die den Alarm auslöst dass man seine Hände waschen soll
+function handeWaschenAlert(){
+	if(!tizen.power.isScreenOn()){
+	     tizen.power.turnScreenOn(); //turn screen on
+	    	 setTimeout(function() {
+	    		 navigator.vibrate(1000);
+	    		 setTimeout(function() {
+	    			 alert("Vergessen sie es nicht ihre Hände zu Waschen!");
+		 		     console.log("Callback Funktion wird aufgerufen");
+		 		    }, 1200);
+	    		 
+	    	 },300);
+	 		     
+	}
+	else{
+	navigator.vibrate(1000);
+	setTimeout(function() {
+		alert("Vergessen sie es nicht ihre Hände zu Waschen!");
+		console.log("Callback Funktion wird aufgerufen");
+		}, 1200);
+	}
+}
+
+//Funktion wenn man in die Einstellungen wechselt oder die Einstellungen verlässt
 function ScreenWechseln(){
 	var settingsID = document.getElementById('settings');
 	var startID = document.getElementById('Start');
@@ -136,6 +215,7 @@ function errinern(){
 		// aktivieren
 		document.getElementById("errinernButton").src = "img/button_ac.png";
 		localStorage.setItem('bewegungsAk', "aktiv");
+		alert("Hey, sorry dies ist noch nicht implementiert :) ");
 		
 	}
 	

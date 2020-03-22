@@ -4,7 +4,7 @@
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>m00hXzvt/HsJrgu4Bm7Rw2mJnA6kBcHS9V6qTY8Va3s=</DigestValue>
+<DigestValue>p1ecYJCUo+CJKfxzKuP2h1PiwfZqwN1KcF2CQ3aYrEY=</DigestValue>
 </Reference>
 <Reference URI="css%2Fstyle.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -40,7 +40,7 @@
 </Reference>
 <Reference URI="js%2Fmain.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>biwDGA2ba8LLeEobrnjzsYG+Q0fpu0RLei0NqIIntJk=</DigestValue>
+<DigestValue>ktlqdyf0442j+4PA5FmOJqM0QerFus0MB3eW4bJ33iU=</DigestValue>
 </Reference>
 <Reference URI="#prop">
 <Transforms>
@@ -51,11 +51,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-Z82/oh8kc8yVTRfctzh35+iG73B96WQK9CXmkFREmTp1O6bRp4R9TrCl1TD7+9cnm5bdSDevbinB
-0/SL/As5zjLd0x2T4uGnsFeZOE5AQZXmV7zfO9vt3muY56shd5GBgD97t3K33lX5b6MLWb5X3fgY
-J6OxJL2xWCo7r99uD5Qv7Gs+iqpDAq6VLmsKlrbyiZ0HQir5XET/0DSFCqGAJAvYm+TAvuTjq66B
-+PwBRIFV146J+49yC1rfho6nWIiSG4jH4dMwGYWtkLSvE38nQU1Uy86Uaz8i+RszchEyzRU/rVBF
-Svch2PZvAYy0ul2o1Cpv7i27Lv2jybCfHuLhvg==
+lABLkalDrC6rTOUigPLRX80jcQptI2G6aOAXHcEjZyFKi/lU0TwU0/5m0ccEraMyKVC881LPC0Ri
+tRofCpUL53NViCGNz4I6gcr/al3f37MxLDZsQSUKmJLiI5nDrIOTMHnljrPBdl1gNIYsBpucrkra
+CjyznuWbvkmJFKFSslsfGGtN7ERooJjB4pfhKn3t7U9yLiuy9y4JxNK0x1xemcQtMpAlK0VjnjeM
+6JUEcKvJ2VRmI/Vlih74brmqZgauqIW0/eBbT6GnwaxJLgXKYv48qzIzmlcj2u+S7szlmWi3pd62
+zCsmUEX0sdlI5iNKuEZQQc9L/BgBjFaHI04m4w==
 </SignatureValue>
 <KeyInfo>
 <X509Data>
