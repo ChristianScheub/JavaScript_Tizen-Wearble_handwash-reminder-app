@@ -1,0 +1,115 @@
+* {
+    font-family: Verdana, Lucida Sans, Arial, Helvetica, sans-serif;
+}
+
+body {
+
+    background-color:#00695c;
+}
+
+.contents {
+	
+	height:320px;
+}
+
+
+.text {
+	font-weight:bold;
+	font-size:2em;
+	color:#fff;
+}
+#textbox{
+	 text-align:center; 
+  vertical-align: middle;
+  width: 200px;
+	line-height: 30px;
+	padding-top: 30px;
+	padding-left: 70px;
+}
+.timer{
+	 position: absolute;
+	 font-size:4em;
+	 }
+
+#zeitMin{
+	top: 130px;
+	left: 95px;
+}
+#zeitDoppel{
+	top: 128px;
+	left: 165px;
+}
+#zeitSek{
+	top: 130px;
+	left: 185px;
+}
+#settingsButton{
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	padding-left:140px;
+	padding-top: 110px;
+}
+#settingsButton1{
+	
+	width: 50px;
+	height: 50px;
+	padding-left:150px;
+	padding-top: 280px;
+}
+
+#textbox_bewegungserkennung{
+	position: absolute;
+	top: 35px;
+	left: 60px;
+	width: 60px;
+	height: 100px;
+ text-align:center; 
+  vertical-align: middle;
+  
+	line-height: 30px;
+  
+}
+
+#textbox_ZeitInMin{
+	position: absolute;
+  text-align:center; 
+  vertical-align: middle;
+  line-height: 30px;
+  width: 200px;
+  padding-top: 120px;
+  padding-left: 5px;
+}
+
+#textbox_gesichtlange{
+	position: absolute;
+  text-align:center; 
+  vertical-align: middle;
+  line-height: 30px;
+  width: 200px;
+  padding-top: 185px;
+  padding-left: 50px;
+}
+
+#errinernButton{
+	 position: absolute;
+	 top: 70px;
+	padding-left: 255px;
+	width: 50px;
+	height: 50px;
+}
+#timerButton{
+	 position: absolute;
+	 top: 150px;
+	padding-left: 255px;
+	width: 50px;
+	height: 50px;
+}
+#gesichtButton{
+	 position: absolute;
+	 top: 230px;
+	padding-left: 255px;
+	width: 50px;
+	height: 50px;
+}
+}
