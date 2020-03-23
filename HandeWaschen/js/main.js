@@ -40,10 +40,24 @@ function errorCallback(error) {
 function listenerChill(info) {
 	 //  document.getElementById('textbox').innerHTML = "Type:"+info.type+"Zeit:";
 	   //+localStorage.getItem('chillTimeHour');
+	
+	//Wird aufgerufen wenn der Status sich ändert
        console.log('type: ' + info.type);
        console.log('timestamp: ' + info.timestamp);
        console.log('accuracy: ' + info.accuracy);
-    //   handeWaschenAlert();
+    
+       
+       if(localStorage.getItem('unterwegsTimeHour')!==null){ //Wenn es nicht gleich null ist war man schon mal aktiv seit man die app hat
+    	   if(localStorage.getItem('bewegungsAk')=="aktiv"){
+    		   handeWaschenAlert();
+    	   var unterwegsStunde = localStorage.getItem('unterwegsTimeHour');
+    	   var unterwegsMinute = localStorage.getItem('unterwegsTimeMin');
+    	   var date = tizen.time.getCurrentDateTime();
+    	   
+    	   
+    	  
+    	   }
+       }
      //  var date = tizen.time.getCurrentDateTime();
 	  // localStorage.setItem('chillTimeHour', date.getHours());
 	   //localStorage.setItem('chillTimeMin', date.getMinutes());
@@ -138,6 +152,7 @@ function sekCaller() {
 
 //Funktion die den Alarm auslöst dass man seine Hände waschen soll
 function handeWaschenAlert(){
+	tizen.application.launch('D4VzI0JAL9.HandeWaschen');
 	if(!tizen.power.isScreenOn()){
 	     tizen.power.turnScreenOn(); //turn screen on
 	    	 setTimeout(function() {
@@ -151,11 +166,12 @@ function handeWaschenAlert(){
 	 		     
 	}
 	else{
-	navigator.vibrate(1000);
+	navigator.vibrate(800);
+	 tizen.power.turnScreenOn(); //turn screen on idk sonst kurz aus
 	setTimeout(function() {
 		alert("Vergessen sie es nicht ihre Hände zu Waschen!");
 		console.log("Callback Funktion wird aufgerufen");
-		}, 1200);
+		}, 900);
 	}
 }
 
@@ -215,7 +231,7 @@ function errinern(){
 		// aktivieren
 		document.getElementById("errinernButton").src = "img/button_ac.png";
 		localStorage.setItem('bewegungsAk', "aktiv");
-		alert("Hey, sorry dies ist noch nicht implementiert :) ");
+		//alert("Hey, sorry dies ist noch nicht implementiert :) ");
 		
 	}
 	
@@ -224,12 +240,13 @@ function errinern(){
 function gesicht(){
 	if(localStorage.getItem('gesichtAK')=="aktiv"){
 		// aktivieren
-		document.getElementById("gesichtButton").src = "img/button_de.png";
+		//document.getElementById("gesichtButton").src = "img/button_de.png";
 		localStorage.setItem('gesichtAK', "deaktiv");
+		alert("Hey, sorry dies ist noch nicht implementiert :) ");
 	}
 	else{
 		// deaktiveren
-		document.getElementById("gesichtButton").src = "img/button_ac.png";
+		//document.getElementById("gesichtButton").src = "img/button_ac.png";
 		localStorage.setItem('gesichtAK', "aktiv");
 		alert("Hey, sorry dies ist noch nicht implementiert :) ");
 		
