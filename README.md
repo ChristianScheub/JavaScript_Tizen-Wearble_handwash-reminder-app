@@ -1,7 +1,7 @@
 # HandeWaschen-Samsung-Wearble
 Bei Fragen oder Anregeungen kann man sich gerne an mich wenden! :)
 Meine E-Mail:
-christian.developer.app@gmail.com
+support@youwatchapps.de
 
 Natürlich kann auch jeder sich melden wo an diesem Code weiter arbeiten möchte und sich nicht sicher ist wie was funktioniert, ich helfe gerne :)
 
