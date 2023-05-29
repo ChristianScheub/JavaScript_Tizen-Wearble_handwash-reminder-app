@@ -1,4 +1,7 @@
 # HandeWaschen-Samsung-Wearble
+Last Edit: 03.2020
+Language: JavaScript Tizen Wearable Web App
+<br><br>
 Bei Fragen oder Anregeungen kann man sich gerne an mich wenden! :)
 Meine E-Mail:
 support@youwatchapps.de
